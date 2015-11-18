@@ -23,9 +23,23 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".connect_widget" >
+        <receiver android:name="connect_widget" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/connect_widget" />
+        </receiver>
+
+        <receiver
+            android:name=".WidgetIntentReceiver"
+            android:label="widgetBroadcastReceiver"
+           android:enabled="true" >
+            <intent-filter>
+                <action android:name="ACTIVATE" />
+                <action android:name="DEACTIVATE" />
             </intent-filter>
 
             <meta-data
