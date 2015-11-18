@@ -6,10 +6,11 @@
 <ImageView
     android:background="@color/white"
     android:layout_width="fill_parent"
-    android:layout_height="75dp" />
+    android:layout_height="75dp"
+    android:id="@+id/imageView" />
 
     <TextView
-        android:textColor="@color/red"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/status"
@@ -31,10 +32,21 @@
     android:id="@+id/startbtn"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/green"
+    android:background="@color/greenb"
     android:text = "@string/start"
+        android:textColor="@color/white"
     android:layout_gravity="center"
-        android:layout_below="@+id/update"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/stopbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/redb"
+        android:text = "@string/stop"
+        android:layout_gravity="center"
+        android:layout_alignTop="@+id/startbtn"
+        android:layout_toEndOf="@+id/startbtn" />
 
 </RelativeLayout>

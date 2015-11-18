@@ -17,40 +17,37 @@ public class WidgetIntentReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.connect_widget);
-    String action = intent.getAction();
+        String action = intent.getAction();
         if(action.equals("ACTIVATE"))
         {
-            remoteViews.setTextViewText(R.id.startbtn, "STOP");
-            intent.setAction("DEACTIVATE");
+            updateButtonListenerActivate(context);
 
         }
         else if(action.equals("DEACTIVATE"))
         {
-            remoteViews.setTextViewText(R.id.startbtn, "START");
-            intent.setAction("ACTIVATE");
+            updateButtonListenerDeactivate(context);
 
         }
-
 
     }
 
     private void updateButtonListenerActivate(Context context) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.connect_widget);
-        remoteViews.setTextViewText(R.id.startbtn, "STOP" );
+
+        Toast.makeText(context, "Start pressed", Toast.LENGTH_SHORT).show();
 
         //REMEMBER TO ALWAYS REFRESH YOUR BUTTON CLICK LISTENERS!!!
         remoteViews.setOnClickPendingIntent(R.id.startbtn, connect_widget.buildButtonPendingIntent(context));
-
         connect_widget.pushWidgetUpdate(context.getApplicationContext(), remoteViews);
     }
 
     private void updateButtonListenerDeactivate(Context context) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.connect_widget);
-        remoteViews.setTextViewText(R.id.startbtn, "START" );
+
+        Toast.makeText(context, "Stop pressed", Toast.LENGTH_SHORT).show();
 
         //REMEMBER TO ALWAYS REFRESH YOUR BUTTON CLICK LISTENERS!!!
         remoteViews.setOnClickPendingIntent(R.id.startbtn, connect_widget.buildButtonPendingIntent(context));
-
         connect_widget.pushWidgetUpdate(context.getApplicationContext(), remoteViews);
     }
 
