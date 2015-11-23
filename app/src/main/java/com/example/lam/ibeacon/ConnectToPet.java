@@ -1,6 +1,7 @@
 package com.example.lam.ibeacon;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,12 +21,20 @@ public class ConnectToPet extends Activity {
     private TextView text;
     private ImageView forward;
     private SharedPreferences settings;
+    private Button aboutButton;
+    private Button exitButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_to_pet);
+
+        aboutButton = (Button)findViewById(R.id.aboutButton);
+        aboutButton.setOnClickListener(clickOnAbout);
+
+        exitButton = (Button)findViewById(R.id.exitButton);
+        exitButton.setOnClickListener(clickOnExit);
 
         txtDescription = (EditText) findViewById(R.id.editText);
 
@@ -35,6 +44,16 @@ public class ConnectToPet extends Activity {
 
 
     }
+
+    View.OnClickListener clickOnAbout = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v) {
+
+            Intent aboutIntent = new Intent(ConnectToPet.this, AboutActivity.class);
+            startActivity(aboutIntent);
+        }
+    };
 
     View.OnClickListener clicktoget = new View.OnClickListener() {
         @Override
@@ -55,6 +74,16 @@ public class ConnectToPet extends Activity {
 
         }
     };
+
+    View.OnClickListener clickOnExit = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v) {
+
+            finish();
+        }
+    };
+
 
 
 
