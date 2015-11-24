@@ -8,34 +8,25 @@
 
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:required="true"
+        android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission
+        android:required="true"
+        android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission
+        android:required="true"
+        android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".iBeacon"
-            android:label="@string/app_name" >
-        </activity>
 
         <receiver android:name=".connect_widget" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/connect_widget" />
-        </receiver>
-        <receiver
-            android:name=".WidgetIntentReceiver"
-            android:enabled="true"
-            android:label="widgetBroadcastReceiver" >
-            <intent-filter>
-                <action android:name="ACTIVATE" />
-                <action android:name="DEACTIVATE" />
             </intent-filter>
 
             <meta-data
@@ -70,6 +61,12 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
+
+        <service
+            android:name=".WidgetP2pService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

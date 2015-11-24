@@ -24,6 +24,10 @@ public class connect_widget extends AppWidgetProvider {
     private static boolean status = false;
 
     @Override
+    public void onEnabled(Context context) {
+    }
+
+    @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager,
                          int[] appWidgetIds) {
 

@@ -13,7 +13,7 @@
     <string name="danjPlusID">Dan Jalba - 224287</string>
     <string name="text1"> Are you a pet owner?</string>
     <string name="text2"> Then this is the best way to keep track of your pet while handling your own duties.</string>
-    <string name="text3"> Connect to your pet's collar right now!</string>
+    <string name="text3"> Connect to your pet"s collar right now!</string>
     <string name="text4">    App made by: </string>
     <string name="title_activity_about">AboutActivity</string>
 </resources>

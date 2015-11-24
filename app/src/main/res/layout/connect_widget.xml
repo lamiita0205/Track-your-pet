@@ -17,16 +17,16 @@
         android:id="@+id/textView"
         />
 
-    <TextView
+    <ImageView
         android:id="@+id/update"
-        android:background="@color/grey"
+        android:background="@drawable/grey"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_gravity="center"
         android:gravity="center_horizontal|center_vertical"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/textView">
-    </TextView>
+    </ImageView>
 
     <Button
     android:id="@+id/startbtn"

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -12,7 +13,6 @@ import android.widget.Toast;
  * Created by Lam on 18-Nov-15.
  */
 public class WidgetIntentReceiver extends BroadcastReceiver {
-    private static final String status = "Start";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -21,6 +21,10 @@ public class WidgetIntentReceiver extends BroadcastReceiver {
         if(action.equals("ACTIVATE"))
         {
             updateButtonListenerActivate(context);
+
+            Log.i("button", "apasa");
+            Intent service = new Intent(context, WidgetP2pService.class);
+            context.startService(service);
 
         }
         else if(action.equals("DEACTIVATE"))
@@ -35,6 +39,7 @@ public class WidgetIntentReceiver extends BroadcastReceiver {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.connect_widget);
 
         Toast.makeText(context, "Start pressed", Toast.LENGTH_SHORT).show();
+        Log.i("tag", "msg");
 
         //REMEMBER TO ALWAYS REFRESH YOUR BUTTON CLICK LISTENERS!!!
         remoteViews.setOnClickPendingIntent(R.id.startbtn, connect_widget.buildButtonPendingIntent(context));
